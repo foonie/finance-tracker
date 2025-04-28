@@ -1,5 +1,6 @@
 import React from 'react';
 import { Transaction } from '../types';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface TransactionListProps {
   transactions: Transaction[];
@@ -8,21 +9,25 @@ interface TransactionListProps {
 
 const TransactionList: React.FC<TransactionListProps> = ({ transactions, deleteTransaction }) => {
   return (
-    <div>
+    <div className="transaction-list">
       <h3>Transactions</h3>
-      <ul>
-        {transactions.map((transaction) => (
-          <li key={transaction.id}>
-            {transaction.description} - ${transaction.amount.toFixed(2)}
-            <button 
-              style={{ marginLeft: '10px', color: 'red' }}
-              onClick={() => deleteTransaction(transaction.id)}
+      <motion.ul initial={false}>
+        <AnimatePresence>
+          {transactions.map((transaction) => (
+            <motion.li
+              key={transaction.id}
+              className={transaction.amount < 0 ? 'negative' : ''}
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, x: 50 }}
+              transition={{ duration: 0.3 }}
             >
-              X
-            </button>
-          </li>
-        ))}
-      </ul>
+              {transaction.description} - ${transaction.amount.toFixed(2)}
+              <button onClick={() => deleteTransaction(transaction.id)}>X</button>
+            </motion.li>
+          ))}
+        </AnimatePresence>
+      </motion.ul>
     </div>
   );
 };
