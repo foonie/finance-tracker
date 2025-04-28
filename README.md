@@ -1,11 +1,17 @@
 **Finance tracker App**
 
 ✅ Track Income and Expenses
+
 ✅ Show a Balance (Income minus Expenses)
+
 ✅ Add transactions
+
 ✅ Delete transactions
+
 ✅ Save to LocalStorage (so data stays after refresh)
+
 ✅ Animate transactions (fade in / out)
+
 ✅ Built with React + TypeScript
 
 https://foonie.github.io/finance-tracker/
