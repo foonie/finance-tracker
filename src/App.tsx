@@ -4,6 +4,8 @@ import { Transaction } from './types';
 import Balance from './components/Balance';
 import TransactionList from './components/TransactionList';
 import AddTransactionForm from './components/AddTransactionForm';
+import './App.css';
+
 
 const App: React.FC = () => {
 
