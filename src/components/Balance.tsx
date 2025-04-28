@@ -17,17 +17,17 @@ const Balance: React.FC<BalanceProps> = ({ transactions }) => {
     .reduce((acc, amount) => acc + amount, 0);
 
   return (
-    <div>
-      <h2>Balance: ${balance.toFixed(2)}</h2>
-      <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px' }}>
-        <div style={{ color: 'green' }}>
+    <div className="balance">
+        
+        <h2>Balance: R{balance.toFixed(2)}</h2>      <div className="income-expense">
+        <div className="income">
           <h4>Income</h4>
-          <p>${income.toFixed(2)}</p>
-        </div>
-        <div style={{ color: 'red' }}>
+          <p>R{income.toFixed(2)}</p>
+          </div>
+        <div className="expense">
           <h4>Expense</h4>
-          <p>${Math.abs(expense).toFixed(2)}</p>
-        </div>
+          <p>R{Math.abs(expense).toFixed(2)}</p>
+          </div>
       </div>
     </div>
   );
