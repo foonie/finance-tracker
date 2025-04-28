@@ -22,7 +22,7 @@ const TransactionList: React.FC<TransactionListProps> = ({ transactions, deleteT
               exit={{ opacity: 0, x: 50 }}
               transition={{ duration: 0.3 }}
             >
-              {transaction.description} - ${transaction.amount.toFixed(2)}
+              {transaction.description} - R{transaction.amount.toFixed(2)}
               <button onClick={() => deleteTransaction(transaction.id)}>X</button>
             </motion.li>
           ))}
